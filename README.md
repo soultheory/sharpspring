@@ -21,6 +21,8 @@ Rails.application.credentials.dig(:key_name)
 
 * How to run the test suite
 
+bundle exec rspec spec/ --format documentation
+
 * Services (job queues, cache servers, search engines, etc.)
 
 * Deployment instructions

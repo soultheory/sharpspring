@@ -16,14 +16,13 @@ group :production do
 end
 
 group :development, :test do
-  gem 'rspec-rails', '3.9.0'
+  gem 'rspec-rails'
   gem 'better_errors'
   gem 'pry-rails'
   gem 'thin'
 end
 
 group :test do
+  gem 'mongoid-rspec'
   gem 'capybara', '>= 2.15'
-  gem 'selenium-webdriver'
-  gem 'chromedriver-helper'
 end
