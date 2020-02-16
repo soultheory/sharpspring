@@ -11,6 +11,10 @@ Things you may want to cover:
 
 * Configuration
 
+EDITOR="atom --wait" bin/rails credentials:edit
+Rails.application.credentials.dig(:key_name)
+
+
 * Database creation
 
 * Database initialization
