@@ -18,11 +18,13 @@ end
 group :development, :test do
   gem 'rspec-rails'
   gem 'better_errors'
+  gem 'binding_of_caller'
   gem 'pry-rails'
   gem 'thin'
 end
 
 group :test do
   gem 'mongoid-rspec'
+  gem 'rails-controller-testing'
   gem 'capybara', '>= 2.15'
 end

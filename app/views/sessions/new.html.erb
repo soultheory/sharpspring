@@ -1,0 +1,18 @@
+<div class="ui middle aligned center aligned grid">
+  <div class="column">
+    <h2 class="ui teal image header">
+
+      <div class="content">
+        <%= image_tag "sharpspring-perfectaudience.png", class: 'image' %>
+        <%= t "app_name" %>
+      </div>
+    </h2>
+    <%= render "sessions/form" %>
+    <div class="ui message">
+      New to us? <%= link_to "Sign Up", new_registration_path %>
+    </div>
+    <div class="">
+      <sub>by: Kadeem Pardue - kadeempardue@gmail.com</sub>
+    </div>
+  </div>
+</div>

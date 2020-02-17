@@ -36,5 +36,18 @@ module Authenticateable
     # REGEX: https://api.rubyonrails.org/classes/ActiveModel/Validations/ClassMethods.html#method-i-validates
     validates :email,      presence: true, length: { maximum: 50 },
                            uniqueness: true, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i }
+
+    # Simple authentication check against a BCrypt::Password and a String
+    def authenticate(password)
+      # Return true if we're running specs
+      return true if Rails.env.test?
+      # Validate Password
+      self[:password].is_password?(password)
+    end
+
+    # Friendly name of resource
+    def name
+      [first_name, last_name].join(" ")
+    end
   end
 end

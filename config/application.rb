@@ -28,5 +28,8 @@ module Notes
     # the framework and any gems in your application.
     config.eager_load_paths << Rails.root.join('lib')
     config.autoload_paths << Rails.root.join('lib')
+
+    # Explicit in case we forget later down the road.
+    config.filter_parameters += [:password, :password_confirmation]
   end
 end

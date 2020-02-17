@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Notes</title>
+    <title>Notes App</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,11 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= render "shared/header" %>
+    <%= content_tag :div, class: 'ui vertical stripe segment' do %>
+      <%= yield %>
+      <%= render "shared/flash" %>
+    <% end %>
+    <%= render "shared/footer" %>
   </body>
 </html>

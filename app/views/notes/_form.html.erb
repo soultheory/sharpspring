@@ -1,0 +1,18 @@
+<%= form_for(@note, html: { class: "ui large form #{'error' if flash[:error]} #{'notice' if flash[:notice]}" }) do |f| %>
+  <div class="ui stacked segment">
+    <div class="field">
+      <div class="ui left icon input">
+        <i class="sticky note outline icon"></i>
+        <%= f.text_field :title, placeholder: "Title", minlength: 2, maxlength: 30 %>
+      </div>
+    </div>
+    <div class="field">
+      <div class="ui left icon input">
+        <%= f.text_area :body, placeholder: "This is my personal note.", minlength: 2, maxlength: 1000 %>
+      </div>
+    </div>
+    <div class="ui fluid large teal submit button">Sign Up</div>
+  </div>
+
+  <%= render "shared/flash" %>
+<% end %>

@@ -1,0 +1,13 @@
+@import "grid";
+@import "columns";
+@import "form";
+@import "typography";
+
+body {
+  background-color: #F8F8F8;
+}
+
+.image {
+  @include margin(null, null, 0.2em, null);
+  @include padding(1em, 1em, 1em, 1em);
+}

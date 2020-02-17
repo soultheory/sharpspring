@@ -1,0 +1,20 @@
+<% return unless user_signed_in? %>
+<div class="ui large top fixed hiden menu">
+  <div class="ui container">
+    <%= link_to t("menu.home"), root_path, class: "item #{set_active_class(:root)}" %>
+    <%= link_to t("menu.miscellaneous"), miscellaneous_path, class: "item #{set_active_class(:miscellaneous)}" %>
+
+    <div class="right menu">
+      <div class="item">
+        <%= link_to t("menu.new_note"), new_note_path, class: "ui teal button" %>
+      </div>
+      <div class="ui simple dropdown item">
+        <%= current_user.name %> <i class="dropdown icon"></i>
+        <div class="menu">
+          <div class="divider"></div>
+          <%= link_to "<i class='logout icon'></i> #{t("menu.logout")}".html_safe, destroy_session_path, class: "item" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

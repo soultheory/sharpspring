@@ -1,0 +1,31 @@
+<%= form_tag registrations_path, class: "ui large form #{'error' if flash[:error]} #{'notice' if flash[:notice]}" do %>
+  <div class="ui stacked segment">
+    <div class="field">
+      <div class="ui left icon input">
+        <i class="address card icon"></i>
+        <%= text_field_tag :first_name, nil, placeholder: "First Name", minlength: 2, maxlength: 50 %>
+      </div>
+    </div>
+    <div class="field">
+      <div class="ui left icon input">
+        <i class="address card icon"></i>
+        <%= text_field_tag :last_name, nil, placeholder: "Last Name", minlength: 2, maxlength: 50 %>
+      </div>
+    </div>
+    <div class="field">
+      <div class="ui left icon input">
+        <i class="user icon"></i>
+        <%= text_field_tag :email, nil, placeholder: "E-mail address", minlength: 2, maxlength: 50 %>
+      </div>
+    </div>
+    <div class="field">
+      <div class="ui left icon input">
+        <i class="lock icon"></i>
+        <%= password_field_tag :password, nil, placeholder: "Password", minlength: 2, maxlength: 50 %>
+      </div>
+    </div>
+    <div class="ui fluid large teal submit button">Sign Up</div>
+  </div>
+
+  <%= render "shared/flash" %>
+<% end %>

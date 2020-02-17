@@ -1,0 +1,58 @@
+/* semantic-ui */
+.ui.header .content {
+  @include padding(1em, 1em, 1em, 1em);
+}
+
+.ui.teal.header {
+  color: $turquoise!important;
+}
+.ui.teal.dividing.header {
+  border-bottom: 2px solid $turquoise;
+}
+
+.ui.teal.buttons .button,
+.ui.teal.button {
+  background-color: $turquoise;
+
+  &:hover, &:focus, &:active {
+    background-color: $black-coral;
+  }
+
+  .active.button {
+    background-color: $turquoise;
+
+    &:hover, &:focus, &:active {
+      background-color: $black-coral;
+    }
+  }
+}
+
+.ui .success.message, .ui .warning.message, .ui .error.message {
+  display: none;
+}
+
+.ui.vertical.stripe {
+  @include padding(8em, 0, 8em, 0);
+  min-height: 560px;
+}
+
+.ui.vertical.stripe h3 {
+  font-size: 1.33em;
+}
+.ui.vertical.stripe .button + h3,
+.ui.vertical.stripe p + h3 {
+  @include margin(3em, 0, 0, 0);
+}
+.ui.vertical.stripe .floated.image {
+  clear: both;
+}
+.ui.vertical.stripe p {
+  font-size: 1em;
+}
+.ui.vertical.stripe .horizontal.divider {
+  @include margin(1em, 0, 1em, 0);
+}
+
+.footer.segment {
+  padding: 5em 0em;
+}

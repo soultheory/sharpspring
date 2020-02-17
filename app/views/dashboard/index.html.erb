@@ -1,0 +1,17 @@
+<div class="ui text container">
+  <h1 class="ui header">My Personal Notes</h1>
+  <% if notes.present? %>
+    <% notes.each do |note| %>
+      <h4 class="ui horizontal header divider">
+        <%= link_to "Created by #{current_user.name}, #{note.friendly_date}", "#" %>
+      </h4>
+      <h3 class="ui header"><%= note.title %></h3>
+      <p><%= note.body %></p>
+      <%= link_to t("button.edit"), edit_note_path(note), class: "ui large teal button" %>
+      <%= link_to t("button.delete"), note_path(note), method: :delete, class: "ui large red button" %>
+
+    <% end %>
+  <% else %>
+    <p><%= t("messages.create_note") %></p>
+  <% end %>
+</div>
