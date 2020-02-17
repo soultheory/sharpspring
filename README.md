@@ -2,6 +2,10 @@
 
 [![Build Status](https://travis-ci.com/soultheory/sharpspring.svg?branch=master)](https://travis-ci.com/soultheory/sharpspring.svg)
 
+Tests are automatically run on Travis. Once builds pass they are automatically deployed to Heroku. To view builds click here:
+
+https://travis-ci.com/soultheory/sharpspring/builds
+
 Notes is a cloud-based note taking app built on Ruby on Rails and hosted on Heroku.
 
   - Users can register, log in and log out
