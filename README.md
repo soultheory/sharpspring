@@ -1,6 +1,6 @@
 # Sharpspring + Perfect Audience Notes App
 
-[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
+[![Build Status](https://travis-ci.com/soultheory/sharpspring.svg?branch=master)](https://travis-ci.com/soultheory/sharpspring.svg)
 
 Notes is a cloud-based note taking app built on Ruby on Rails and hosted on Heroku.
 

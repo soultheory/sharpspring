@@ -165,3 +165,14 @@ test:
         connect_timeout: 3
   options:
     raise_not_found_error: false
+production:
+  clients:
+    default:
+      uri: <%= Rails.application.credentials[:db_production_connection_uri] %>
+      options:
+        safe: true
+        auth_source: admin
+        server_selection_timeout: 1
+        connect_timeout: 3
+  options:
+    raise_not_found_error: false
