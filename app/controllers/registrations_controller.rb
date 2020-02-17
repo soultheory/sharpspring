@@ -4,6 +4,7 @@ class RegistrationsController < ApplicationController
 
     if @user.save
       flash[:notice] = t("messages.successful_registration")
+      response.set_header('X-User-ID', @user.id)
       return redirect_to new_session_path
     end
 

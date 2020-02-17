@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe SessionsController, type: :controller do
-  describe "#index" do
+  describe "#new" do
     it "shows login page" do
       get :new
       expect(response).to render_template("new")
@@ -12,7 +12,7 @@ RSpec.describe SessionsController, type: :controller do
     it "returns to login page when we don't have a successful authentication" do
       post :create
       expect(response).to redirect_to('/login')
-      expect(flash[:error]).to eq(I18n.t("errors.failed_login"))
+      expect(flash[:error]).to eq(I18n.t("messages.failed_login"))
     end
 
     it "redirects to dashboard when we have a successful authentication" do

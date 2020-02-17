@@ -1,3 +1,8 @@
 textarea {
   resize: none!important;
 }
+
+pre {
+  color: $green;
+  white-space: pre-wrap;
+}

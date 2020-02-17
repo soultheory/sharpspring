@@ -6,19 +6,39 @@ class NotesController < ApplicationController
   end
 
   def create
-    @note = Note.new(whitelisted_params)
-    @note.user = current_user
-    if @note.save
+    @note = current_user&.notes.create(whitelisted_params)
+    if @note.valid?
       flash[:notice] = t("messages.successful_save")
-      return redirect_to new_session_path
+      response.set_header('X-Note-ID', @note.id)
+      return redirect_to root_path
     end
 
     flash[:error] = t("messages.failed_save")
-    redirect_to new_registration_path(User.new)
+    redirect_to new_note_path(Note.new)
   end
 
   def edit
-    @note = current_user.notes.where(id: params[:id]).first
+    @note = current_user&.notes.find(id: params[:id])
+  end
+
+  def update
+    @note = current_user&.notes.find(params[:id])
+    if @note&.update(whitelisted_params)
+      flash[:notice] = t("messages.successful_save")
+      response.set_header('X-Note-ID', @note.id)
+      return redirect_to root_path
+    end
+
+    flash[:error] = t("messages.failed_save")
+    redirect_to edit_note_path(@note)
+  end
+
+  def destroy
+    @note = current_user&.notes.find(id: params[:id])
+    @note&.destroy
+    response.set_header('X-Note-ID', @note.id)
+    flash[:notice] = t("messages.successful_destroy")
+    redirect_to root_path
   end
 
   private

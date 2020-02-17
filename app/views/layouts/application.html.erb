@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Notes App</title>
+    <title>SharpSpring + Perfect Audience | Notes App</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -12,8 +12,10 @@
   <body>
     <%= render "shared/header" %>
     <%= content_tag :div, class: 'ui vertical stripe segment' do %>
+      <div class="ui text container flash">
+        <%= render "shared/flash" %>
+      </div>
       <%= yield %>
-      <%= render "shared/flash" %>
     <% end %>
     <%= render "shared/footer" %>
   </body>

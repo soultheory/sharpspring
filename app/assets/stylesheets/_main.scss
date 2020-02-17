@@ -11,3 +11,7 @@ body {
   @include margin(null, null, 0.2em, null);
   @include padding(1em, 1em, 1em, 1em);
 }
+
+.flash {
+  @include padding(0, 0, 1em, 0);
+}

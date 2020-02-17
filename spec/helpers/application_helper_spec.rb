@@ -7,7 +7,7 @@ describe ApplicationHelper do
     end
 
     it "returns true when path_name is current route" do
-      helper.stub(:set_active_class).and_return(true)
+      allow(helper).to receive(:set_active_class).and_return(true)
       expect(helper.set_active_class(:root)).to eq(true)
     end
   end

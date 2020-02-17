@@ -1,0 +1,74 @@
+<div class="ui text container center">
+  <h1 class="ui header"><%= t("headers.miscellaneous") %></h1>
+</div>
+
+<div class="ui text container segment">
+  <h4 class="ui horizontal header divider">
+    Configuration
+  </h4>
+  <p><b>Credentials:</b> Sensitive/secret environment variables are stored as an encrypted hash in the credentials.yml.enc file. To view these variables run:</p>
+  <pre>EDITOR="atom --wait" bin/rails credentials:edit</pre>
+  <p>Replace 'atom' with your editor of choice.</p>
+  <hr>
+  <p>
+    <b>Database:</b> MongoDB. I chose Cloud Atlas as my host so that someone can log in and see the data living on the collections and my cluster.<br><br>There are three databases: 1 for development, test and production respectively.
+  </p>
+  <pre>
+    URL: https://cloud.mongodb.com/
+    Username: kadeempardue@gmail.com
+    Password: Sharp@ARazor1!
+  </pre>
+  <hr>
+  <p>
+    <b>Models:</b> I chose to make an extra Adminstrator model. There is no functionality for this model (i.e. it cannot log in or do anything). I created it because it allowed me to showcase my knowledge of `ActiveSupport::Concern` and sharing it across files. You will see it in the codebase.
+  </p>
+  <hr>
+  <p>
+    <b>UML Diagrams:</b> I chose to make a UML Class Diagram for the app. It helps me "measure twice and cut once" when I'm writing code.
+  </p>
+  <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://www.lucidchart.com/documents/embeddedchart/dcb5f83e-6cba-4b7d-b874-a3ff19bc9f20" id="M3KyW10-k9yO"></iframe></div>
+  <p>
+    Although, I didn't build any Administrator functionality, that is the direction I would have headed. Additionally, I would have built Update User and Reset Password functionality with more time.
+  </p>
+  <hr>
+  <p>
+    <b>Project Management:</b> I used my Jira board to show how I can build software with project management tools and in an Agile environment.
+  </p>
+  <p>
+    <%= image_tag "jira1.png", alt: "Jira", class: "image", width: '100%' %>
+    <%= image_tag "jira2.png", alt: "Jira", class: "image", width: '100%' %>
+  </p>
+  <hr>
+  <p>
+    <b>Codebase + Libraries:</b> Code is stored publically on Github. Commits are in sync with Jira ticket titles.
+  </p>
+  <pre>
+    URL: https://github.com/soultheory/sharpspring
+  </pre>
+  <p>
+    For much of the text in this app I used the standard en.yml I18n locale file. This shows my knowledge of separating concerns in specific files.
+  </p>
+  <p>
+    For passwords I used the BCrypt library and encrypted the hashed password object as a Mongo friendly hash. UserPassword --> BCrypt::Password --> Mongoized BCrypt::Password Field Type.
+    That Mongoized BCrypt::Password object contains all the data needed to verify the password such as salt, hash, etc. This allows us keep sensitive passwords out of our application. I left comments in the 'authenticateable' concern with more information.
+  </p>
+  <p>
+    For authenticated sessions I simply stored the user_id in upon successful login. This was enough to manage a session in-app and kept the session footprint as small as possible.
+  </p>
+  <p>
+    For styling I used a vanilla sass framework called Semantic-UI.
+  </p>
+  <pre>
+    URL: https://semantic-ui.com
+  </pre>
+  <p>I separated scss files and imported them into one manifest file that the Rails asset pipeline can pick up.</p>
+  <p>
+    For development and testing I used Rspec and a few ancillary gems that help me determine an error at runtime in development.
+  </p>
+</div>
+<div class="ui text container segment">
+  <h4 class="ui horizontal header divider">
+    86 Tests In Rspec. `bundle exec rspec spec/ --format documentation`
+  </h4>
+  <pre class="green"><%= t("miscellaneous") %></pre>
+</div>

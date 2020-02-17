@@ -16,11 +16,137 @@ en:
     create_note: >-
       Get started by clicking the +New Note button to create your first note.
     successful_save: Succesfully saved.
-  errors:
     failed_login: >-
       Failed to log in the account.
       If you continue experiencing issues reset your password or contact an admin.
     failed_save: Failed to save.
+    successful_destroy: Successfully destroyed.
+  headers:
+    dashboard: My Personal Notes
+    miscellaneous: Miscellaneous Info About App
   actions:
     edit: Edit
     delete: Delete
+  miscellaneous: >-
+    ApplicationController
+      #user_signed_in?
+        returns false when we don't have a session
+        returns true when we have a session
+      #current_user
+        returns nil when we don't have a session
+        returns user when we have a session
+
+    DashboardController
+      #authenticate!
+        redirect to login page when we don't have a session
+        show the dashboard when we have a session
+
+    NotesController
+      #new
+        redirect to login page when we don't have a session
+        show the form when we have a session
+      #create
+        redirect to login page when we don't have a session
+        shows an error when note we do not have a title or body and we have a session
+        creates a note when we provide a title and a body and have a session
+        creates a note when we provide just a title and have a session
+        creates a note when we provide just a body and have a session
+      #edit
+        redirect to login page when we don't have a session
+        show the form when we have a session
+      #update
+        redirect to edit note page when updating an invalid note
+        redirect to dashboard page when updating an valid note
+        #destroy
+            redirect to login page when we don't have a session
+            destroys a note when have a session
+
+    RegistrationsController
+      #new
+        shows registration page
+      #create
+        returns to registration page when we don't have a successful authentication
+        redirects to login page when we have a successful registration with an encrypted password
+
+    SessionsController
+      #new
+        shows login page
+      #create
+        returns to login page when we don't have a successful authentication
+        redirects to dashboard when we have a successful authentication
+      #destroy
+        destroys session and returns to login page
+
+    ApplicationHelper
+      #set_active_class
+        returns nil when path_name is not current route
+        returns true when path_name is current route
+
+    Administrator
+      behaves like authenticateable
+        is expected to include Mongoid::Document
+        is expected not to include Mongoid::Attributes::Dynamic
+        is expected to be a Mongoid document with timestamps
+        is expected to be stored in {:database=>:notes_test, :collection=>:administrators, :client=>:default}
+        is expected to have fields named "first_name", "last_name", "email", and "reset_password_token" of type String
+        is expected to have field named "reset_password_date" of type Date
+        is expected to have fields named "created_at" and "updated_at" of type Time
+        is expected to have field named "password" of type BCrypt::Password
+        is expected to have "presence" validator on "first_name"
+        is expected to have "presence" validator on "last_name"
+        is expected to have "presence" validator on "email"
+        is expected to have "uniqueness" validator on "email"
+        is expected to have "presence" validator on "password"
+        is expected to have "length" validator on "first_name" with minimum of 2 and with maximum of 50
+        is expected to have "length" validator on "last_name" with minimum of 2 and with maximum of 50
+        is expected to have "length" validator on "password" with minimum of 60 and with maximum of 80
+        is expected to have "length" validator on "email" with maximum of 50
+        is not valid with invalid attributes
+        is not valid with incorrect email
+        is valid with valid attributes
+        has an encrypted password
+
+    Note
+      is expected to include Mongoid::Document
+      is expected not to include Mongoid::Attributes::Dynamic
+      is expected to be a Mongoid document with timestamps
+      is expected to be stored in {:database=>:notes_test, :collection=>:notes, :client=>:default}
+      is expected to have fields named "title" and "body" of type String
+      is expected to have "length" validator on "title" with maximum of 30
+      is expected to have "length" validator on "body" with maximum of 1000
+      should throw an error if title is not provided
+      should throw an error if title is longer than 30 characters
+      should throw an error if body is longer than 1000 characters
+      should throw an error if user is not provided
+      should create note if just the title is provided
+      should create note if the title and body is provided
+      should create note with the title as the first 30 characters if just the body is provided and is less than 1000 characters
+      is expected to be embedded in "user"
+
+    User
+      is expected to embed many "notes"
+      behaves like authenticateable
+        is expected to include Mongoid::Document
+        is expected not to include Mongoid::Attributes::Dynamic
+        is expected to be a Mongoid document with timestamps
+        is expected to be stored in {:database=>:notes_test, :collection=>:users, :client=>:default}
+        is expected to have fields named "first_name", "last_name", "email", and "reset_password_token" of type String
+        is expected to have field named "reset_password_date" of type Date
+        is expected to have fields named "created_at" and "updated_at" of type Time
+        is expected to have field named "password" of type BCrypt::Password
+        is expected to have "presence" validator on "first_name"
+        is expected to have "presence" validator on "last_name"
+        is expected to have "presence" validator on "email"
+        is expected to have "uniqueness" validator on "email"
+        is expected to have "presence" validator on "password"
+        is expected to have "length" validator on "first_name" with minimum of 2 and with maximum of 50
+        is expected to have "length" validator on "last_name" with minimum of 2 and with maximum of 50
+        is expected to have "length" validator on "password" with minimum of 60 and with maximum of 80
+        is expected to have "length" validator on "email" with maximum of 50
+        is not valid with invalid attributes
+        is not valid with incorrect email
+        is valid with valid attributes
+        has an encrypted password
+
+    Finished in 11.69 seconds (files took 1.73 seconds to load)
+    86 examples, 0 failures

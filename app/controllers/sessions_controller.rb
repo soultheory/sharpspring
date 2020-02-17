@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       flash[:notice] = t("messages.successful_login")
       return redirect_to root_path
     end
-    flash[:error] = t("errors.failed_login")
+    flash[:error] = t("messages.failed_login")
     redirect_to new_session_path
   end
 

@@ -2,12 +2,16 @@ class Note
   include Mongoid::Document
   include Mongoid::Timestamps
 
+  # Set which database we are storing to within our MongoDB cluster.
+  # This is useful for separate database management across environments
+  store_in database: "notes_#{Rails.env}"
+
   field :title, type: String
   field :body,  type: String
 
   validate :validate_title_and_body
-  validates :title, length: { minimum: 2, maximum: 30 }
-  validates :body, length: { minimum: 2, maximum: 1000 }
+  validates :title, length: { maximum: 30 }
+  validates :body, length: { maximum: 1000 }
 
   embedded_in :user
 
@@ -23,7 +27,7 @@ class Note
   # 3) Have a body with no more than 1000 characters
   def validate_title_and_body
     return true unless self[:title].blank?
-    return raise("Title and Body are required") if self[:body].blank?
+    return errors.add(:validate_title_and_body, "Title and Body are required") if self[:body].blank?
     self[:title] = self[:body][0..29]
   end
 end

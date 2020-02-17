@@ -12,6 +12,7 @@ development:
       # hosts:
       #   - localhost:27017
       options:
+        safe: true
         # Note that all options listed below are Ruby driver client options (the mongo gem).
         # Please refer to the driver documentation of the version of the mongo gem you are using
         # for the most up-to-date list of options.
@@ -158,6 +159,7 @@ test:
     default:
       uri: <%= Rails.application.credentials[:db_test_connection_uri] %>
       options:
+        safe: true
         auth_source: admin
         server_selection_timeout: 1
         connect_timeout: 3
