@@ -2,8 +2,9 @@ language: ruby
 rvm:
  - 2.6.1
 cache: bundler
+sudo: required
 services:
-  - mongodb
+- mongodb
 # deploy:
 #   provider: heroku
 #   api_key:

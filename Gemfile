@@ -15,7 +15,7 @@ group :production do
   gem 'puma', '~> 3.11'
 end
 
-group :development, :test do
+group :development, :test, :travis do
   gem 'rspec-rails', '~> 3.9.0'
   gem 'better_errors', '~> 2.5.1'
   gem 'binding_of_caller', '~> 0.8.0'
@@ -23,7 +23,7 @@ group :development, :test do
   gem 'thin', '~> 1.7.2'
 end
 
-group :test do
+group :test, :travis do
   gem 'mongoid-rspec', '~> 4.0.1'
   gem 'rails-controller-testing', '~> 1.0.4'
 end

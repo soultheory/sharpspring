@@ -3,7 +3,7 @@ development:
   clients:
     # Defines the default client. (required)
     default:
-      uri: <%= Rails.application.credentials[:db_dev_connection_uri] %>
+      uri: <%= Rails.application.credentials[:db_dev_connection_uri] || ENV['DB_DEV_CONNECTION_URI'] %>
       # # Defines the name of the default database that Mongoid can connect to.
       # # (required).
       # database: notes_development
@@ -157,7 +157,7 @@ development:
 test:
   clients:
     default:
-      uri: <%= Rails.application.credentials[:db_test_connection_uri] %>
+      uri: <%= Rails.application.credentials[:db_test_connection_uri] || ENV['DB_TEST_CONNECTION_URI'] %>
       options:
         safe: true
         auth_source: admin
@@ -168,7 +168,7 @@ test:
 production:
   clients:
     default:
-      uri: <%= Rails.application.credentials[:db_production_connection_uri] %>
+      uri: <%= Rails.application.credentials[:db_production_connection_uri] || ENV['DB_PRODUCTION_CONNECTION_URI'] %>
       options:
         safe: true
         auth_source: admin
