@@ -15,4 +15,9 @@ class ApplicationController < ActionController::Base
     return nil unless user_signed_in?
     @user ||= User.find(session[:user_id])
   end
+
+  def sanitize_params(params)
+    params.to_h.each { |k,v| params[k] = helpers.sanitize(v) }
+    params
+  end
 end

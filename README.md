@@ -10,7 +10,7 @@ Notes is a cloud-based note taking app built on Ruby on Rails and hosted on Hero
 
   - Users can register, log in and log out
   - Users can add, create, view and delete notes
-  - User can view miscellaneous information about how this app was built.
+  - User can view documentation about how this app was built.
 
 ### Tech
 

@@ -4,6 +4,7 @@
     <title>SharpSpring + Perfect Audience | Notes App</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
@@ -12,9 +13,11 @@
   <body>
     <%= render "shared/header" %>
     <%= content_tag :div, class: 'ui vertical stripe segment' do %>
-      <div class="ui text container flash">
-        <%= render "shared/flash" %>
-      </div>
+      <% if user_signed_in? %>
+        <div class="ui text container flash">
+          <%= render "shared/flash" %>
+        </div>
+      <% end %>
       <%= yield %>
     <% end %>
     <%= render "shared/footer" %>

@@ -1,5 +1,5 @@
 <div class="ui text container center">
-  <h1 class="ui header"><%= t("headers.miscellaneous") %></h1>
+  <h1 class="ui header"><%= t("headers.docs") %></h1>
 </div>
 
 <div class="ui text container segment">
@@ -26,7 +26,9 @@
   <p>
     <b>UML Diagrams:</b> I chose to make a UML Class Diagram for the app. It helps me "measure twice and cut once" when I'm writing code.
   </p>
-  <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://www.lucidchart.com/documents/embeddedchart/dcb5f83e-6cba-4b7d-b874-a3ff19bc9f20" id="M3KyW10-k9yO"></iframe></div>
+  <p>
+    <%= image_tag "lucidchart.jpg", alt: "Lucid Chart", class: "image", width: '100%' %>
+  </p>
   <p>
     Although, I didn't build any Administrator functionality, that is the direction I would have headed. Additionally, I would have built Update User and Reset Password functionality with more time.
   </p>
@@ -37,6 +39,13 @@
   <p>
     <%= image_tag "jira1.png", alt: "Jira", class: "image", width: '100%' %>
     <%= image_tag "jira2.png", alt: "Jira", class: "image", width: '100%' %>
+  </p>
+  <hr>
+  <p>
+    <b>Deployment:</b> Pushing code to Github will trigger a Travis build to run automated tests. Upon successful build it will automatically deploy to Heroku.
+  </p>
+  <p>
+    <%= image_tag "heroku.png", alt: "Jira", class: "image", width: '100%' %>
   </p>
   <hr>
   <p>
@@ -71,7 +80,7 @@
 </div>
 <div class="ui text container segment">
   <h4 class="ui horizontal header divider">
-    86 Tests In Rspec. `bundle exec rspec spec/ --format documentation`
+    86 Tests In Rspec.
   </h4>
-  <pre class="green"><%= t("miscellaneous") %></pre>
+  <pre class="green"><%= t("docs") %></pre>
 </div>

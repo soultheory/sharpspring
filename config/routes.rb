@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :notes, only: [:new, :edit, :update, :create, :destroy]
+  resources :notes
 
   get "login",    to: "sessions#new",     as: :new_session
   post "login",   to: "sessions#create",  as: :sessions
@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get "signup",   to: "registrations#new",    as: :new_registration
   post "signup",  to: "registrations#create", as: :registrations
 
-  get "miscellaneous", to: "dashboard#miscellaneous", as: :miscellaneous
+  get "docs", to: "dashboard#docs", as: :docs
 
   root "dashboard#index"
 end

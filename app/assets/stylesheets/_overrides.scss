@@ -1,33 +1,40 @@
 /* semantic-ui */
 .ui.header .content {
-  @include padding(1em, 1em, 1em, 1em);
+  @include padding(0, 1em, 1em, 1em);
 }
 
 .ui.teal.header {
   color: $turquoise!important;
 }
+
 .ui.teal.dividing.header {
   border-bottom: 2px solid $turquoise;
 }
 
-.ui.teal.buttons .button,
-.ui.teal.button {
+.ui.teal.button,
+.ui.teal.buttons .button {
   background-color: $turquoise;
 
-  &:hover, &:focus, &:active {
+  &:active,
+  &:focus,
+  &:hover {
     background-color: $black-coral;
   }
 
   .active.button {
     background-color: $turquoise;
 
-    &:hover, &:focus, &:active {
+    &:active,
+    &:focus,
+    &:hover {
       background-color: $black-coral;
     }
   }
 }
 
-.ui .success.message, .ui .warning.message, .ui .error.message {
+.ui .error.message,
+.ui .success.message,
+.ui .warning.message {
   display: none;
 }
 
@@ -39,20 +46,150 @@
 .ui.vertical.stripe h3 {
   font-size: 1.33em;
 }
+
 .ui.vertical.stripe .button + h3,
 .ui.vertical.stripe p + h3 {
   @include margin(3em, 0, 0, 0);
 }
+
 .ui.vertical.stripe .floated.image {
   clear: both;
 }
+
 .ui.vertical.stripe p {
   font-size: 1em;
+  word-wrap: break-word;
 }
+
 .ui.vertical.stripe .horizontal.divider {
   @include margin(1em, 0, 1em, 0);
 }
 
 .footer.segment {
-  padding: 5em 0em;
+  padding: 5em 0;
 }
+
+/* Nav */
+.ui.fixed.borderless.menu {
+  background-color: $turquoise;
+}
+
+.ui .computer.only .item {
+  color: #fff;
+}
+
+.ui .computer.only .item:hover {
+  background: $turquoise !important;
+  color: #fff !important;
+  border-bottom: 1px solid #fff;
+}
+
+.ui .computer .item.active {
+  background: $turquoise;
+  color: #fff;
+  border-bottom: 1px solid #fff;
+}
+
+.ui.dropdown.item .menu {
+  background-color: $turquoise !important;
+}
+.ui.menu .ui.dropdown .menu > .item {
+  color: #fff !important;
+}
+.ui.menu .ui.dropdown .menu > .item.active {
+  background-color: $turquoise !important;
+  color: #fff !important;
+  border-bottom: 1px solid #fff;
+}
+.ui.menu .ui.dropdown .menu > .item:hover {
+  background-color: $black-coral !important;
+  color: #fff !important;
+  border-bottom: 1px solid #fff;
+}
+
+.ui.fixed.borderless.menu .row > a.header.item {
+  font-size: 1.2em;
+}
+
+/* Mobile */
+.tablet.mobile.only .header, .ui.icon.button > .icon {
+  color: #fff;
+}
+
+.tablet.mobile.only .header:hover {
+  color: #fff !important;
+}
+
+.ui.basic.button:hover {
+   background: $black-coral !important;
+  color: #fff !important;
+  border-bottom: 1px solid #fff;
+}
+
+.ui.vertical.menu {
+  display: none;
+  border: none;
+  box-shadow: none;
+  background-color: $black-coral;
+}
+.ui.vertical.menu > .item {
+  padding-left: 1.428em;
+  color: #fff;
+}
+
+.ui.vertical.menu > .item.active {
+  padding-left: 1.428em;
+  background-color: $black-coral !important;
+  color: $turquoise !important;
+  border-bottom: 1px solid #fff;
+}
+
+.ui.vertical.menu > .item:hover {
+  padding-left: 1.428em;
+  background-color: $black-coral !important;
+  color: #fff !important;
+  border-bottom: 1px solid #fff;
+}
+.ui.vertical.menu .item .title {
+  color: #fff;
+}
+.ui.vertical.menu .item .title .dropdown.icon {
+  float: none;
+  color: #fff;
+}
+
+.ui.vertical.menu .item .content .item {
+  padding: 0.5em 1em;
+  color: #fff;
+}
+
+.ui.vertical.menu .item .content .item:hover {
+  padding: 0.5em 1em;
+  background-color: $turquoise !important;
+  color: #fff !important;
+  border-bottom: 1px solid #fff;
+}
+
+.ui.vertical.menu .item .content .item.active {
+  padding: 0.5em 1em;
+  background-color: $turquoise !important;
+  color: #fff !important;
+  border-bottom: 1px solid #fff;
+}
+
+.ui.vertical.menu .header.item {
+  text-transform: uppercase;
+  color: #fff;
+}
+/* Nav */
+a.ui.light-turquoise.button {
+  background-color: $light-turquoise;
+}
+.ui.menu:not(.vertical) .item.light-turquoise {
+  color: #FFF!important;
+  &:hover {
+    color: #FFF!important;
+  }
+}
+
+.ui.menu .item > a:not(.ui) { color: #FFF; }

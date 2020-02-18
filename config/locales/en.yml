@@ -3,8 +3,8 @@ en:
   menu:
     home: "Home"
     sign_up: "Sign Up"
-    new_note: "+ New Note"
-    miscellaneous: "Miscellaneous"
+    new_note: "New Note"
+    docs: "Documentation"
     logout: "Logout"
   messages:
     successful_login: Logged In Successfully!
@@ -23,11 +23,11 @@ en:
     successful_destroy: Successfully destroyed.
   headers:
     dashboard: My Personal Notes
-    miscellaneous: Miscellaneous Info About App
+    docs: Documentation
   actions:
     edit: Edit
     delete: Delete
-  miscellaneous: >-
+  docs: >-
     ApplicationController
       #user_signed_in?
         returns false when we don't have a session

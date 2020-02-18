@@ -31,5 +31,8 @@ module Notes
 
     # Explicit in case we forget later down the road.
     config.filter_parameters += [:password, :password_confirmation]
+
+    # Explicit because we need to be.
+    config.time_zone = 'Eastern Time (US & Canada)'
   end
 end

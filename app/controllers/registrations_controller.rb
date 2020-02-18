@@ -1,6 +1,6 @@
 class RegistrationsController < ApplicationController
   def create
-    @user = User.new(whitelisted_params)
+    @user = User.new(sanitize_params(whitelisted_params))
 
     if @user.save
       flash[:notice] = t("messages.successful_registration")

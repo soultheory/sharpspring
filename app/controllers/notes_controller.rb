@@ -5,8 +5,12 @@ class NotesController < ApplicationController
     @note = Note.new
   end
 
+  def show
+    redirect_to root_path
+  end
+
   def create
-    @note = current_user&.notes.create(whitelisted_params)
+    @note = current_user&.notes.create(sanitize_params(whitelisted_params))
     if @note.valid?
       flash[:notice] = t("messages.successful_save")
       response.set_header('X-Note-ID', @note.id)
@@ -23,7 +27,7 @@ class NotesController < ApplicationController
 
   def update
     @note = current_user&.notes.find(params[:id])
-    if @note&.update(whitelisted_params)
+    if @note&.update(sanitize_params(whitelisted_params))
       flash[:notice] = t("messages.successful_save")
       response.set_header('X-Note-ID', @note.id)
       return redirect_to root_path
