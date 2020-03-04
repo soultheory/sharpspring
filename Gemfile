@@ -12,7 +12,7 @@ gem 'bootsnap', '~> 1.4.5'
 gem 'bcrypt', '~> 3.1.13'
 
 group :production do
-  gem 'puma', '~> 3.11'
+  gem 'puma', '~> 3.12'
 end
 
 group :development, :test do
