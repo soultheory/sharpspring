@@ -17,7 +17,7 @@ end
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.9.0'
-  gem 'better_errors', '~> 2.5.1'
+  gem 'better_errors', '~> 2.8.0'
   gem 'binding_of_caller', '~> 0.8.0'
   gem 'pry-rails', '~> 0.3.9'
   gem 'thin', '~> 1.7.2'
